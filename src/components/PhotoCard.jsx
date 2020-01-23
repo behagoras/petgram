@@ -1,15 +1,13 @@
-/* eslint-disable react/jsx-curly-brace-presence */
-/* eslint-disable react/jsx-closing-bracket-location */
 import React from 'react';
 import styled from 'styled-components';
 
 import { fadeIn } from '../styles/animation';
-// import useLocalStorage from '../../hooks/useLocalStorage';
-// import useNearScreen from '../../hooks/useNearScreen';
+import useLocalStorage from '../hooks/useLocalStorage';
+import useNearScreen from '../hooks/useNearScreen';
 
-// import ToggleLikeMutation from '../../container/ToggleLikeMutation';
+import ToggleLikeMutation from '../apollo/ToggleLikeMutation';
 
-// import FavButton from './FavButton';
+import FavButton from './FavButton';
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
@@ -37,17 +35,17 @@ const ImgWrapper = styled.figure`
 `;
 
 const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
-  // const key = `like-${id}`;
+  const key = `like-${id}`;
 
-  // const [show, $element] = useNearScreen();
-  // const [liked, setLiked] = useLocalStorage(key, false);
+  const [show, $element] = useNearScreen();
+  const [liked, setLiked] = useLocalStorage(key, false);
 
   return (
     <Article
-    // ref={$element}
+      ref={$element}
     >
       {
-        // show &&
+        show &&
         (
           <>
             <a href={`/?detail=${id}`}>
@@ -55,7 +53,7 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
                 <img alt={src} src={src} />
               </ImgWrapper>
             </a>
-            {/* <ToggleLikeMutation>
+            <ToggleLikeMutation>
               {
                 (toggleLike) => {
                   const handleFavClick = () => {
@@ -68,7 +66,7 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
                   return <FavButton liked={liked} likes={likes} onClick={handleFavClick} />;
                 }
               }
-            </ToggleLikeMutation> */}
+            </ToggleLikeMutation>
 
           </>
         )
