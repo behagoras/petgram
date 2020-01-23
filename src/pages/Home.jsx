@@ -1,15 +1,13 @@
 import React from 'react';
 
-// import ListOfCategories from '../Components/Categories/ListOfCategories.jsx';
-import Category from '../components/Category';
+import ListOfCategories from '../components/ListOfCategories';
 import ListOfPhotoCardsWithQuery from '../apollo/ListOfPhotoCardsWithQuery';
 
 const Home = () => {
 
   return (
     <>
-      {/* <ListOfCategories /> */}
-      <Category />
+      <ListOfCategories />
       <ListOfPhotoCardsWithQuery
       // categoryId={2}
       />
