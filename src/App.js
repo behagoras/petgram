@@ -1,11 +1,10 @@
 import React from 'react';
-import PhotoCard from './components/PhotoCard';
-import ListOfPhotoCardsWithQuery from './apollo/ListOfPhotoCardsWithQuery';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <ListOfPhotoCardsWithQuery />
+      <Home />
     </div>
   );
 }
