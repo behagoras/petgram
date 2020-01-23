@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from '@reach/router';
 
 import { fadeIn } from '../styles/animation';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -48,11 +49,11 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
         show &&
         (
           <>
-            <a href={`/?detail=${id}`}>
+            <Link to={`/detail/${id}`}>
               <ImgWrapper>
                 <img alt={src} src={src} />
               </ImgWrapper>
-            </a>
+            </Link>
             <ToggleLikeMutation>
               {
                 (toggleLike) => {

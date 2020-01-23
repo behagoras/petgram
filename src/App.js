@@ -3,27 +3,25 @@ import { Router } from '@reach/router';
 
 import GlobalStyles from './styles/globalStyles';
 
-import Home from './pages/Home';
 import Logo from './components/Logo';
-import PhotoCardWithQuery from './apollo/PhotoCardWithQuery';
+import NavBar from './components/NavBar';
+
+//Pages
+import Home from './pages/Home';
+import Detail from './pages/Detail';
 
 function App() {
-  const urlParams = new window.URLSearchParams(window.location.search);
-  const detailId = urlParams.get('detail');
   return (
 
     <div className="App">
       <GlobalStyles />
       <Logo />
-      {
-        detailId ?
-          <PhotoCardWithQuery id={detailId} /> : (
-            <Router>
-              <Home path="/" />
-              <Home path="/pet/:id" />
-            </Router>
-          )
-      }
+      <Router>
+        <Home path="/" />
+        <Home path="/pet/:id" />
+        <Detail path="/detail/:detailId" />
+      </Router>
+      <NavBar />
     </div>
   );
 }
