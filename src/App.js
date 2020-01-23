@@ -4,14 +4,21 @@ import GlobalStyles from './styles/globalStyles';
 
 import Home from './pages/Home';
 import Logo from './components/Logo';
+import PhotoCardWithQuery from './apollo/PhotoCardWithQuery';
 
 function App() {
+  const urlParams = new window.URLSearchParams(window.location.search);
+  const detailId = urlParams.get('detail');
   return (
 
     <div className="App">
       <GlobalStyles />
       <Logo />
-      <Home />
+      {
+        detailId ?
+          <PhotoCardWithQuery id={detailId} /> :
+          <Home />
+      }
     </div>
   );
 }
