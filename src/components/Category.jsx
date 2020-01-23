@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link as LinkRouter } from '@reach/router';
 
-const Anchor = styled.a`
+const Link = styled(LinkRouter)`
   display:flex;
   flex-direction:column;
   text-align:center;
@@ -22,12 +23,12 @@ const Image = styled.img`
 
 const DEFAULT_IMAGE = 'https://www.housesitmatch.com/wp-content/themes/petsitter/images/job-placeholder.gif';
 
-const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => {
+const Category = ({ cover = DEFAULT_IMAGE, path = '#', emoji = '?' }) => {
   return (
-    <Anchor href={path}>
+    <Link to={path}>
       <Image src={cover} />
       {emoji}
-    </Anchor>
+    </Link>
   );
 };
 
