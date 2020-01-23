@@ -58,7 +58,10 @@ const ListOfCategories = () => {
           categories.map((category) => {
             return (
               <Item key={category.id}>
-                <Category {...category} path={`/pet/${category.id}`} />
+                <Category
+                  {...category}
+                  path={`/pet/${category.id}`}
+                />
               </Item>
             );
           })

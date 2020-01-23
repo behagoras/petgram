@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router } from '@reach/router';
 
 import GlobalStyles from './styles/globalStyles';
 
@@ -16,8 +17,12 @@ function App() {
       <Logo />
       {
         detailId ?
-          <PhotoCardWithQuery id={detailId} /> :
-          <Home />
+          <PhotoCardWithQuery id={detailId} /> : (
+            <Router>
+              <Home path="/" />
+              <Home path="/pet/:id" />
+            </Router>
+          )
       }
     </div>
   );
