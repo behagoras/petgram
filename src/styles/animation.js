@@ -27,4 +27,5 @@ const positionDownKeyFrames = keyframes`
 
     }
 `;
+
 export const positionDown = ({ time = '1s', type = 'ease' } = {}) => css`animation: ${time} ${positionDownKeyFrames} ${type}`;
