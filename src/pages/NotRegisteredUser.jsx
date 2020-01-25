@@ -19,7 +19,12 @@ const NotRegisteredUser = () => {
                       const input = { email, password };
                       const variables = { input };
                       register({ variables })
-                        .then(activateAuth)
+                        .then(
+                          (data) => {
+                            const { signup } = data;
+                            activateAuth(signup);
+                          },
+                        )
                         .catch((error) => { console.log(error.graphQLErrors[0].message) ; });
                     };
 
@@ -36,7 +41,12 @@ const NotRegisteredUser = () => {
                       const input = { email, password };
                       const variables = { input };
                       login({ variables })
-                        .then(activateAuth)
+                        .then(
+                          ({ data }) => {
+                            const { login } = data;
+                            activateAuth(login);
+                          },
+                        )
                         .catch((error) => { console.log(error.graphQLErrors[0].message) ; });
                     };
 
