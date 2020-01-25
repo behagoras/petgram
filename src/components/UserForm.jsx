@@ -13,6 +13,9 @@ const Input = styled.input`
   padding:8px 4px;
   display: block;
   width: 100%;
+  &[disabled]{
+    opacity:0.3;
+  }
 `;
 
 const Button = styled.button`
@@ -23,6 +26,9 @@ const Button = styled.button`
   display: block;
   width: 100%;
   text-align:center;
+  &[disabled]{
+    opacity:0.3;
+  }
 `;
 
 const Title = styled.h2`
@@ -31,19 +37,35 @@ const Title = styled.h2`
   padding:8px;
 `;
 
-function UserForm({ onSubmit, title }) {
+const Error = styled.span`
+  font-size:14px;
+  color:red;
+  
+`;
+
+function UserForm({ error, disabled, onSubmit, title }) {
   const email = useInputValue('');
   const password = useInputValue('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit({
+      email: email.value,
+      password: password.value,
+    });
+  };
+
   return (
     <>
-      <Title>{title}</Title>
-      <Form onSubmit={onSubmit}>
-        <Input type="email" placeholder="Email" {...email} />
-        <Input type="password" placeholder="Password" {...password} />
-        <Button type="submit">
+      <Form disabled={disabled} onSubmit={handleSubmit}>
+        <Title>{title}</Title>
+        <Input disabled={disabled} type="email" placeholder="Email" {...email} />
+        <Input disabled={disabled} type="password" placeholder="Password" {...password} />
+        <Button disabled={disabled} type="submit">
           {title}
         </Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </>
   );
 }
