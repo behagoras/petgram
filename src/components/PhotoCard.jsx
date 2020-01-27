@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from '@reach/router';
 
 import { fadeIn } from '../styles/animation';
-import useLocalStorage from '../hooks/useLocalStorage';
+// import useLocalStorage from '../hooks/useLocalStorage';
 import useNearScreen from '../hooks/useNearScreen';
 
 import ToggleLikeMutation from '../apollo/ToggleLikeMutation';
@@ -35,11 +35,11 @@ const ImgWrapper = styled.figure`
   }
 `;
 
-const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
-  const key = `like-${id}`;
+const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
+  // const key = `like-${id}`;
 
   const [show, $element] = useNearScreen();
-  const [liked, setLiked] = useLocalStorage(key, false);
+  // const [liked, setLiked] = useLocalStorage(key, false);
 
   return (
     <Article
@@ -58,11 +58,12 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               {
                 (toggleLike) => {
                   const handleFavClick = () => {
-                    !liked && toggleLike({ variables: {
+                    // !liked &&
+                    toggleLike({ variables: {
                       input: { id },
                     } });
 
-                    setLiked(!liked);
+                    // setLiked(!liked);
                   };
                   return <FavButton liked={liked} likes={likes} onClick={handleFavClick} />;
                 }
