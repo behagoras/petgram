@@ -59,6 +59,7 @@ const ListOfCategoriesComponent = () => {
             return (
               <Item key={category.id}>
                 <Category
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...category}
                   path={`/pet/${category.id}`}
                 />

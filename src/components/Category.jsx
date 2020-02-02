@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as LinkRouter } from '@reach/router';
+import PropTypes from 'prop-types';
 
 const Link = styled(LinkRouter)`
   display:flex;
@@ -30,6 +31,12 @@ const Category = ({ cover = DEFAULT_IMAGE, path = '#', emoji = '?' }) => {
       {emoji}
     </Link>
   );
+};
+
+Category.propTypes = {
+  cover: PropTypes.string,
+  path: PropTypes.string,
+  emoji: PropTypes.string,
 };
 
 export default Category;

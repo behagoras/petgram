@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import useInputValue from '../hooks/useInputValue';
 import SubmitButton from './SubmitButton';
@@ -57,5 +59,12 @@ function UserForm({ error, disabled, onSubmit, title }) {
     </>
   );
 }
+
+UserForm.propTypes = {
+  error: PropTypes.string,
+  disabled: PropTypes.bool,
+  onSubmit: PropTypes.func,
+  title: PropTypes.string,
+};
 
 export default UserForm;

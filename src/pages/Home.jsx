@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ListOfCategories from '../components/ListOfCategories';
 import ListOfPhotoCardsWithQuery from '../apollo/ListOfPhotoCardsWithQuery';
@@ -15,6 +16,10 @@ const HomePage = ({ categoryId }) => {
       <ListOfPhotoCardsWithQuery categoryId={categoryId} />
     </Layout>
   );
+};
+
+HomePage.propTypes = {
+  categoryId: PropTypes.string,
 };
 
 const Home = React.memo(HomePage, (prevProps, props) => {

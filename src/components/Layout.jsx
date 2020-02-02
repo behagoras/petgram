@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   padding-bottom:16px;
@@ -41,5 +42,11 @@ function Layout({ children, title, subtitle }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+};
 
 export default Layout;

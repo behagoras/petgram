@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PhotoCardWithQuery from '../apollo/PhotoCardWithQuery';
 import Layout from '../components/Layout';
 
@@ -8,6 +9,10 @@ const Detail = ({ detailId }) => {
       <PhotoCardWithQuery id={detailId} />
     </Layout>
   );
+};
+
+Detail.propTypes = {
+  detailId: PropTypes.string,
 };
 
 export default Detail;
