@@ -3,14 +3,12 @@ import React from 'react';
 import ListOfCategories from '../components/ListOfCategories';
 import ListOfPhotoCardsWithQuery from '../apollo/ListOfPhotoCardsWithQuery';
 
-const Home = ({ id }) => {
+const Home = ({ categoryId }) => {
 
   return (
     <>
       <ListOfCategories />
-      <ListOfPhotoCardsWithQuery
-        categoryId={id}
-      />
+      <ListOfPhotoCardsWithQuery categoryId={categoryId} />
     </>
   );
 };
