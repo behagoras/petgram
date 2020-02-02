@@ -27,7 +27,20 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript><h3>You need to enable JavaScript to run this app.</h3></noscript>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      if('serviceWorker' in navigator){
+        window.addEventListener('load', function(){
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration=>{
+              console.log('SW registrado')
+            })
+            .catch(registrationError=>{
+              console.log('Ha habido un error en el SW ',registrationError)
+            })
+        })
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
