@@ -4,12 +4,13 @@ import UserForm from '../components/UserForm';
 
 import RegisterMutation from '../apollo/RegisterMutation';
 import LoginMutation from '../apollo/LoginMutation';
+import Layout from '../components/Layout';
 
 const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context);
 
   return (
-    <>
+    <Layout title="No haz iniciado sesión" subtitle="Regístrate o inicia sesión">
       <RegisterMutation>
         {
           (register, { data, loading, error }) => {
@@ -47,7 +48,9 @@ const NotRegisteredUser = () => {
           }
         }
       </LoginMutation>
-    </>
+
+    </Layout>
+
   );
 };
 
