@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
 import ListOfPhotoCards from '../components/ListOfPhotoCards';
+import Spinner from '../components/Spinner';
 
 const GET_PHOTOS = gql`
 query getPhotos($categoryId: ID) {
@@ -19,7 +20,7 @@ query getPhotos($categoryId: ID) {
 `;
 
 const renderProp = ({ loading, error, data }) => {
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Spinner />;
   if (error) return <p>{error}</p>;
 
   const photo = data ? data.photo : {};

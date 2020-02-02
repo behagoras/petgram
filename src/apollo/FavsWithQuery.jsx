@@ -1,6 +1,7 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import Spinner from '../components/Spinner';
 
 import ListOfFavs from '../components/ListOfFavs';
 
@@ -17,7 +18,7 @@ query getFavs {
 `;
 
 const renderProp = ({ loading, error, data }) => {
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Spinner />;
   if (error) return <p>Error!</p>;
   const { favs } = data;
   // eslint-disable-next-line jsx-a11y/alt-text

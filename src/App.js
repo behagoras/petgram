@@ -12,18 +12,18 @@ import NavBar from './components/NavBar';
 
 //Pages
 import Home from './pages/Home';
-// import Favs from './pages/Favs';
-import Detail from './pages/Detail';
-import NotRegisteredUser from './pages/NotRegisteredUser';
-import User from './pages/User';
-import NotFound from './pages/NotFound';
+import Spinner from './components/Spinner';
 
 const Favs = React.lazy(() => import('./pages/Favs'));
+const Detail = React.lazy(() => import('./pages/Detail'));
+const NotRegisteredUser = React.lazy(() => import('./pages/NotRegisteredUser'));
+const User = React.lazy(() => import('./pages/User'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 function App() {
   const { isAuth } = useContext(Context);
   return (
-    <Suspense fallback={<div />}>
+    <Suspense fallback={<Spinner />}>
       <GlobalStyles />
       <Logo />
 
