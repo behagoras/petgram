@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 
+import PropTypes from 'prop-types';
+
 const Button = styled.button`
   display:flex;
   align-items:center;
@@ -23,6 +25,12 @@ const FavButton = ({ liked, likes, onClick }) => {
 likes!
     </Button>
   );
+};
+
+FavButton.propTypes = {
+  liked: PropTypes.bool.isRequired,
+  likes: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default FavButton;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as LinkRouter } from '@reach/router';
+import PropTypes from 'prop-types';
 
 const Link = styled(LinkRouter)`
   border-radius:8px;
@@ -44,5 +45,14 @@ function ListOfFavs({ favs }) {
     </Grid>
   );
 }
+
+ListOfFavs.propTypes = {
+  favs: PropTypes.arrayOf(
+    PropTypes.shape({ // Object
+      id: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    }),
+  ),
+};
 
 export default ListOfFavs;

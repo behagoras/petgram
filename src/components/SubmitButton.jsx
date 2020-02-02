@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line import/prefer-default-export
 const Button = styled.button`
@@ -15,8 +16,16 @@ const Button = styled.button`
   }
 `;
 
-const SubmitButton = ({ children, onClick, className }) => {
-  return <Button className={className} onClick={onClick}>{children}</Button>;
+const SubmitButton = ({ children, onClick, className, disabled }) => {
+  return <Button className={className} disabled={disabled} onClick={onClick}>{children}</Button>;
+};
+
+SubmitButton.propTypes = {
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+
 };
 
 export default SubmitButton;
