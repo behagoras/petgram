@@ -21,6 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "start:dev": "npx serve build -s",
+    "serve:dev": "npm run build && npm run start:dev",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

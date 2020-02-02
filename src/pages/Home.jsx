@@ -4,7 +4,7 @@ import ListOfCategories from '../components/ListOfCategories';
 import ListOfPhotoCardsWithQuery from '../apollo/ListOfPhotoCardsWithQuery';
 import Layout from '../components/Layout';
 
-const Home = ({ categoryId }) => {
+const HomePage = ({ categoryId }) => {
 
   return (
     <Layout
@@ -16,5 +16,9 @@ const Home = ({ categoryId }) => {
     </Layout>
   );
 };
+
+const Home = React.memo(HomePage, (prevProps, props) => {
+  return prevProps.categoryId === props.categoryId;
+});
 
 export default Home;

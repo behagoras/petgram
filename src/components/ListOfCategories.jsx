@@ -46,7 +46,7 @@ function useCategoriesData() {
   return { categories, loading };
 }
 
-const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const [showFixed, setShowFixed] = useState(false);
   const { categories, loading } = useCategoriesData();
 
@@ -85,5 +85,7 @@ const ListOfCategories = () => {
     </>
   );
 };
+
+const ListOfCategories = React.memo(ListOfCategoriesComponent); // No hacer rerenderizado si las props no son diferentes
 
 export default ListOfCategories;
