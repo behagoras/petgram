@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import useInputValue from '../hooks/useInputValue';
+import SubmitButton from './SubmitButton';
 
 const Form = styled.form`
   padding:16px 0;
@@ -13,19 +14,6 @@ const Input = styled.input`
   padding:8px 4px;
   display: block;
   width: 100%;
-  &[disabled]{
-    opacity:0.3;
-  }
-`;
-
-const Button = styled.button`
-  background:#8d00ff;
-  border-radius:3px;
-  color: #fff;
-  height:32px;
-  display: block;
-  width: 100%;
-  text-align:center;
   &[disabled]{
     opacity:0.3;
   }
@@ -61,9 +49,9 @@ function UserForm({ error, disabled, onSubmit, title }) {
         <Title>{title}</Title>
         <Input disabled={disabled} type="email" placeholder="Email" {...email} />
         <Input disabled={disabled} type="password" placeholder="Password" {...password} />
-        <Button disabled={disabled} type="submit">
+        <SubmitButton disabled={disabled} type="submit">
           {title}
-        </Button>
+        </SubmitButton>
       </Form>
       {error && <Error>{error}</Error>}
     </>
